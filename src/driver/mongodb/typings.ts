@@ -5558,20 +5558,20 @@ export declare type PullAllOperator<TSchema> = ({
 }
 
 /** @public */
-export declare type PullOperator<TSchema> = ({
+export declare type PullOperator<TSchema> = {
     readonly [key in KeysOfAType<TSchema, ReadonlyArray<any>>]?:
         | Partial<Flatten<TSchema[key]>>
         | FilterOperations<Flatten<TSchema[key]>>
-} & NotAcceptedFields<TSchema, ReadonlyArray<any>>) & {
+} & {
     readonly [key: string]: FilterOperators<any> | any
 }
 
 /** @public */
-export declare type PushOperator<TSchema> = ({
+export declare type PushOperator<TSchema> = {
     readonly [key in KeysOfAType<TSchema, ReadonlyArray<any>>]?:
         | Flatten<TSchema[key]>
         | ArrayOperator<Array<Flatten<TSchema[key]>>>
-} & NotAcceptedFields<TSchema, ReadonlyArray<any>>) & {
+} & {
     readonly [key: string]: ArrayOperator<any> | any
 }
 
@@ -6113,11 +6113,11 @@ export declare const ServerType: Readonly<{
 export declare type ServerType = (typeof ServerType)[keyof typeof ServerType]
 
 /** @public */
-export declare type SetFields<TSchema> = ({
+export declare type SetFields<TSchema> = {
     readonly [key in KeysOfAType<TSchema, ReadonlyArray<any> | undefined>]?:
         | OptionalId<Flatten<TSchema[key]>>
         | AddToSetOperators<Array<OptionalId<Flatten<TSchema[key]>>>>
-} & NotAcceptedFields<TSchema, ReadonlyArray<any> | undefined>) & {
+} & {
     readonly [key: string]: AddToSetOperators<any> | any
 }
 
